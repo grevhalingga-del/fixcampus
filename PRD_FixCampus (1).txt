@@ -1,0 +1,172 @@
+# PRD - FixCampus (Sistem Informasi Pemeliharaan Fasilitas Kampus Berbasis Web)
+
+Oct 5, 2026 · Dokumen PRD
+
+## 1. Ringkasan Produk
+
+**FixCampus** adalah sistem informasi pemeliharaan fasilitas kampus berbasis web yang membantu mahasiswa dan staf melaporkan kerusakan fasilitas, serta membantu admin dan teknisi menerima, memprioritaskan, menangani, dan memantau proses perbaikan secara terstruktur. Sistem menggantikan pencatatan laporan kerusakan yang tersebar melalui chat atau penyampaian secara lisan dengan satu sistem yang memiliki status dan riwayat penanganan yang jelas.
+
+| Item | Keterangan |
+| --- | --- |
+| Nama produk | FixCampus |
+| Jenis produk | Sistem informasi pemeliharaan fasilitas kampus |
+| Platform | Web (desktop dan mobile browser), tanpa instalasi |
+| Teknologi utama | PHP 8.x, MySQL/MariaDB, HTML/CSS/JavaScript |
+| Pengguna utama | Mahasiswa/Staf, Admin Sarana-Prasarana, Teknisi |
+| Nilai utama | Laporan terstruktur, status perbaikan transparan, riwayat maintenance, dan monitoring fasilitas |
+
+## 2. Latar Belakang dan Masalah
+
+Kerusakan fasilitas kampus seperti lampu, AC, kursi, meja, proyektor, pintu, toilet, dan fasilitas jaringan dapat mengganggu kegiatan belajar maupun operasional kampus. Jika laporan hanya disampaikan secara lisan atau melalui chat pribadi, laporan dapat terlambat ditangani, sulit dipantau, dan riwayat perbaikannya tidak terdokumentasi dengan baik.
+
+Produk ini menjawab masalah berikut:
+
+- Mahasiswa atau staf tidak memiliki saluran pelaporan kerusakan yang terstruktur.
+- Informasi lokasi dan kondisi kerusakan sering tidak lengkap.
+- Admin kesulitan menentukan laporan mana yang harus diprioritaskan.
+- Pelapor tidak mengetahui apakah laporannya sudah diterima, sedang ditangani, atau sudah selesai.
+- Teknisi kesulitan melihat daftar pekerjaan dan prioritas perbaikan.
+- Riwayat kerusakan dan perbaikan fasilitas sulit ditelusuri.
+- Pimpinan atau pengelola sarana-prasarana membutuhkan rekap kerusakan untuk evaluasi.
+
+## 3. Tujuan dan Metrik Keberhasilan
+
+Tujuan produk adalah mempercepat proses pelaporan dan penanganan kerusakan fasilitas serta membuat seluruh proses dapat dipantau melalui sistem.
+
+| ID | Tujuan | Metrik | Target |
+| --- | --- | --- | --- |
+| G-01 | Mempercepat pelaporan | Rata-rata waktu pengisian laporan kerusakan | ≤ 3 menit |
+| G-02 | Mempercepat verifikasi | Waktu admin memproses laporan baru | ≤ 1 jam pada jam kerja |
+| G-03 | Meningkatkan transparansi | Laporan yang memiliki status penanganan | ≥ 95% |
+| G-04 | Mendokumentasikan maintenance | Laporan selesai yang memiliki riwayat tindakan | ≥ 95% |
+| G-05 | Meningkatkan penggunaan sistem | Laporan kerusakan fasilitas internal yang masuk melalui sistem | ≥ 80% |
+
+## 4. Target Pengguna dan Persona
+
+Produk melayani tiga peran utama dengan kebutuhan yang berbeda.
+
+| Persona | Peran | Kebutuhan utama | Kekhawatiran |
+| --- | --- | --- | --- |
+| Dinda, 20 th | Mahasiswa/Staf pelapor | Melaporkan kerusakan dengan foto dan lokasi serta mengetahui status laporan | Laporan tidak ditindaklanjuti |
+| Rudi, 35 th | Admin Sarana-Prasarana | Memverifikasi laporan, menentukan prioritas, dan menugaskan teknisi | Banyak laporan dan prioritas tidak jelas |
+| Andi, 32 th | Teknisi | Melihat tugas, detail kerusakan, dan memperbarui progres perbaikan | Informasi kerusakan tidak lengkap dan pekerjaan tumpang tindih |
+
+## 5. Ruang Lingkup
+
+Versi 1.0 fokus pada pengelolaan pemeliharaan fasilitas dalam satu lingkungan kampus. Sistem tidak menggantikan sistem inventaris aset atau sistem keuangan kampus.
+
+**Termasuk (in-scope)**
+
+- Autentikasi dan hak akses berbasis peran (Pelapor, Admin, Teknisi)
+- Pelaporan kerusakan fasilitas dengan kategori, lokasi, deskripsi, dan foto
+- Verifikasi laporan oleh Admin
+- Penentuan tingkat prioritas kerusakan
+- Penugasan laporan kepada Teknisi
+- Pembaruan status laporan: Diajukan, Diverifikasi, Ditugaskan, Diproses, Selesai, Ditolak
+- Catatan tindakan perbaikan dan dokumentasi hasil perbaikan
+- Riwayat laporan milik pelapor
+- Dashboard Admin dan Teknisi
+- Laporan dan rekap pemeliharaan fasilitas
+
+**Tidak termasuk (out-of-scope)**
+
+- Pengadaan barang atau pembelian suku cadang secara online
+- Manajemen anggaran dan pembayaran teknisi
+- Sistem inventaris aset kampus secara penuh
+- Integrasi dengan sistem akademik kampus
+- Aplikasi mobile native
+- Integrasi notifikasi WhatsApp/SMS pada rilis 1.0
+
+## 6. Fitur dan User Stories
+
+Prioritas memakai MoSCoW: M (Must), S (Should), C (Could). Semua fitur M wajib selesai untuk rilis 1.0.
+
+| ID | Fitur | User story | Prioritas |
+| --- | --- | --- | --- |
+| F-01 | Login dan peran | Sebagai pengguna, saya login agar menu yang tampil sesuai dengan peran saya | M |
+| F-02 | Buat laporan kerusakan | Sebagai pelapor, saya membuat laporan berisi fasilitas, lokasi, kategori, deskripsi, dan foto agar kerusakan dapat dipahami admin | M |
+| F-03 | Riwayat laporan | Sebagai pelapor, saya melihat riwayat laporan dan statusnya agar mengetahui perkembangan penanganan | M |
+| F-04 | Verifikasi laporan | Sebagai admin, saya memeriksa laporan baru dan menerima atau menolaknya dengan alasan | M |
+| F-05 | Prioritas laporan | Sebagai admin, saya menentukan prioritas rendah, sedang, atau tinggi agar pekerjaan dapat diurutkan | M |
+| F-06 | Penugasan teknisi | Sebagai admin, saya menugaskan laporan kepada teknisi agar pekerjaan memiliki penanggung jawab | M |
+| F-07 | Update status | Sebagai teknisi, saya memperbarui status pekerjaan agar progres perbaikan dapat dipantau | M |
+| F-08 | Catatan perbaikan | Sebagai teknisi, saya mencatat tindakan dan hasil perbaikan agar riwayat maintenance terdokumentasi | M |
+| F-09 | Dokumentasi selesai | Sebagai teknisi, saya mengunggah foto hasil perbaikan agar admin dapat memverifikasi pekerjaan | S |
+| F-10 | Dashboard | Sebagai admin, saya melihat jumlah laporan berdasarkan status dan prioritas agar kondisi maintenance dapat dipantau | M |
+| F-11 | Laporan maintenance | Sebagai admin, saya melihat rekap kerusakan dan perbaikan berdasarkan periode | M |
+| F-12 | Filter dan pencarian | Sebagai admin, saya mencari laporan berdasarkan lokasi, kategori, status, dan periode | S |
+| F-13 | Notifikasi dalam sistem | Sebagai pengguna, saya mendapat pemberitahuan saat status laporan berubah | C |
+
+## 7. Alur Pengguna Utama: Pelaporan dan Penanganan Kerusakan
+
+Alur utama terdiri dari beberapa tahap:
+
+1. Pelapor login ke FixCampus.
+2. Pelapor memilih menu **Buat Laporan**.
+3. Pelapor memilih kategori fasilitas, lokasi, tingkat kondisi, menulis deskripsi, dan mengunggah foto.
+4. Sistem menyimpan laporan dengan status **Diajukan** dan memberikan nomor laporan.
+5. Admin memeriksa laporan.
+6. Jika laporan tidak valid atau tidak sesuai, admin menolak laporan dan memberikan alasan.
+7. Jika valid, admin mengubah status menjadi **Diverifikasi**, menentukan prioritas, lalu memilih teknisi.
+8. Sistem memberikan laporan kepada teknisi dengan status **Ditugaskan**.
+9. Teknisi melakukan pemeriksaan dan perbaikan, lalu mengubah status menjadi **Diproses**.
+10. Teknisi mengisi catatan tindakan perbaikan dan, jika tersedia, mengunggah foto hasil perbaikan.
+11. Teknisi mengubah status menjadi **Selesai**.
+12. Admin dapat memeriksa hasil pekerjaan dan laporan masuk ke riwayat maintenance.
+13. Pelapor dapat melihat bahwa laporan telah selesai.
+
+**Keputusan utama:**
+- Apakah laporan valid? Jika tidak, laporan ditolak dengan alasan.
+- Apakah kerusakan memerlukan penanganan segera? Jika ya, prioritas ditetapkan tinggi.
+- Apakah perbaikan selesai? Jika belum, status tetap diproses; jika selesai, laporan ditutup.
+
+## 8. Kebutuhan Non-Fungsional dan Teknologi
+
+Produk harus mudah digunakan dari komputer maupun smartphone melalui browser, karena pelapor dapat membuat laporan langsung ketika menemukan fasilitas yang rusak.
+
+| Aspek | Target |
+| --- | --- |
+| Kinerja | Halaman utama dan daftar laporan dimuat ≤ 3 detik pada koneksi normal |
+| Keamanan | Password di-hash (bcrypt), prepared statement MySQLi, validasi upload, proteksi CSRF dan XSS, sesi dengan timeout |
+| Ketersediaan | Backup database minimal satu kali sehari selama sistem digunakan |
+| Kemudahan | Pengguna baru dapat membuat laporan tanpa pelatihan khusus |
+| Kompatibilitas | Chrome, Edge, Firefox, dan browser mobile versi terbaru |
+| Responsif | Tampilan dapat digunakan pada smartphone, tablet, dan desktop |
+| Upload | Foto laporan dibatasi ukuran dan format file yang ditentukan sistem |
+
+**Stack teknologi:** PHP 8.x (arsitektur MVC, MySQLi), MySQL/MariaDB, Apache/Nginx, HTML5, CSS (Bootstrap), JavaScript (fetch/AJAX), dan library pendukung untuk laporan/ekspor PDF jika diperlukan.
+
+## 9. Asumsi, Dependensi, dan Risiko
+
+Rencana ini mengasumsikan kampus memiliki daftar fasilitas dan lokasi yang dapat digunakan sebagai data awal serta memiliki admin sarana-prasarana dan teknisi yang bertanggung jawab menangani laporan.
+
+| Jenis | Uraian | Mitigasi |
+| --- | --- | --- |
+| Asumsi | Pengguna memiliki akun untuk mengakses sistem | Admin dapat membuat atau mengelola akun pengguna |
+| Asumsi | Data lokasi dan kategori fasilitas tersedia | Siapkan data master sebelum sistem digunakan |
+| Dependensi | Admin dan teknisi harus aktif memproses laporan | Tetapkan penanggung jawab dan aturan waktu respons |
+| Dependensi | Foto kerusakan membutuhkan penyimpanan server | Batasi ukuran/format foto dan lakukan backup |
+| Risiko | Laporan palsu atau tidak jelas | Wajibkan lokasi, deskripsi, dan foto untuk kategori tertentu |
+| Risiko | Banyak laporan dengan prioritas tinggi | Admin melakukan verifikasi dan menentukan prioritas berdasarkan kondisi |
+| Risiko | Teknisi lupa memperbarui status | Dashboard tugas dan status pekerjaan dibuat sederhana |
+| Risiko | Data laporan hilang | Backup database berkala |
+| Risiko | Pengguna tetap melapor melalui chat/manual | Sosialisasi dan sediakan akses sistem yang mudah |
+
+## 10. Rencana Rilis dan Milestone
+
+Pengembangan berjalan dalam empat fase agar fitur inti selesai lebih dahulu sebelum penyempurnaan dan pengujian.
+
+| Fase | Fokus | Hasil |
+| --- | --- | --- |
+| Fase 1 | Analisis dan desain | PRD, kebutuhan sistem, ERD, use case, desain database, dan wireframe |
+| Fase 2 | Pengembangan inti | Login, role, master fasilitas, dan pembuatan laporan |
+| Fase 3 | Pengembangan proses | Verifikasi, prioritas, penugasan teknisi, update status, dan catatan perbaikan |
+| Fase 4 | Dashboard dan laporan | Dashboard, filter, riwayat, laporan maintenance, dan ekspor |
+| Fase 5 | Testing dan UAT | Pengujian fitur, perbaikan bug, pengujian pengguna, dan dokumentasi |
+| Go-live | Implementasi | Sistem siap digunakan pada lingkungan kampus |
+
+Target rilis dapat disesuaikan dengan jadwal perkuliahan. Fitur wajib (M) harus selesai sebelum pengujian pengguna/UAT. Fitur prioritas S dan C dapat dikerjakan setelah alur utama sistem stabil.
+
+## Penutup
+
+FixCampus dirancang sebagai sistem pemeliharaan fasilitas internal kampus yang berfokus pada siklus **lapor → verifikasi → prioritas → penugasan → perbaikan → selesai → riwayat**. Sistem ini cukup sederhana untuk dikembangkan sebagai proyek mahasiswa, tetapi memiliki proses bisnis yang jelas dan dapat dikembangkan lebih lanjut pada versi berikutnya.
