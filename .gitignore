@@ -1,0 +1,13 @@
+# Kata sandi database jangan diunggah
+config/database.php
+
+# Foto unggahan pengguna
+storage/foto_laporan/*
+storage/foto_perbaikan/*
+!storage/foto_laporan/.gitkeep
+!storage/foto_perbaikan/.gitkeep
+
+# Composer dan editor
+vendor/
+.vscode/
+*.log
