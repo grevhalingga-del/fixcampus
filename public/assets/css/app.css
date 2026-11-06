@@ -1,0 +1,11 @@
+/* Penyesuaian kecil di atas Bootstrap 5 */
+body { background: #f5f7fa; min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1 0 auto; }
+.form-card { max-width: 720px; }
+.stat-card { transition: box-shadow .15s ease, transform .15s ease; }
+.stat-card:hover { box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1); transform: translateY(-2px); }
+
+/* Halaman login */
+.auth-page { align-items: center; justify-content: center; background: linear-gradient(160deg, #eaf3fb 0%, #f5f7fa 60%); }
+.auth-wrap { width: 100%; max-width: 400px; padding: 1.5rem 1rem; flex: 0 0 auto; }
+.login-card { border: 0; border-radius: .75rem; }

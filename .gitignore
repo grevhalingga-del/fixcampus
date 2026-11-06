@@ -1,5 +1,5 @@
-# Kata sandi database jangan diunggah
-config/database.php
+# Konfigurasi lokal (kata sandi database pribadi)
+config/database.local.php
 
 # Foto unggahan pengguna
 storage/foto_laporan/*
